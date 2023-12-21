@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace IMCControlAPI.Models
 {
-    public class IMCOptions
+    public class IMCOption
     {
+        public int Id {set;get;}
         public string Description {set;get;} = "";
         public double Min {get;set;}
         public double Max {get;set;}
+        public string Color {get;set;} = "";
     }
 }
