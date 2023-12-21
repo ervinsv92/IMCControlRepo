@@ -9,5 +9,6 @@ namespace IMCControlAPI.Class
     {
         public double IMC {set;get;}
         public string IMCDescription {set;get;} = "";
+        public string Color {set;get;} = "";
     }
 }

@@ -13,6 +13,7 @@ namespace IMCControlAPI.Models
         public double Weight {set;get;}
         public double Imc {set;get;}
         public string ImcDescription {set;get;} = "";
+        public string ImcColor {set;get;} = "";
         public DateTime TimesTamp {set;get;} 
     }
 }
