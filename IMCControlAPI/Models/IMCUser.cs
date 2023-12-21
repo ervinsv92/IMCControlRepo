@@ -7,11 +7,12 @@ namespace IMCControlAPI.Models
 {
     public class IMCUser
     {
-        int Id {set;get;}
-        string Uuid {set;get;} = "";
-        double height {set;get;}
-        double weight {set;get;}
-        double imc {set;get;}
-        string imcDescription {set;get;} = "";
+        public int Id {set;get;}
+        public string Uuid {set;get;} = "";
+        public double Height {set;get;}
+        public double Weight {set;get;}
+        public double Imc {set;get;}
+        public string ImcDescription {set;get;} = "";
+        public DateTime TimesTamp {set;get;} 
     }
 }
