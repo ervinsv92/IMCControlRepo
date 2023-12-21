@@ -1,4 +1,7 @@
+using AutoMapper;
 using IMCControlAPI.Data;
+using IMCControlAPI.DTO;
+using IMCControlAPI.Models;
 using IMCControlAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,9 +14,11 @@ namespace IMCControlAPI.Controllers
     {
         private readonly DataContext _context;
         private readonly IIMCService _imcService;
-        public IMCController(DataContext context, IIMCService iMCService){
+        private readonly IMapper _mapper;
+        public IMCController(DataContext context, IIMCService iMCService, IMapper mapper){
             this._context = context;
             this._imcService = iMCService;
+            this._mapper = mapper;
         }
 
         [HttpGet("calculateimc/{height}/{weight}")]
@@ -28,5 +33,26 @@ namespace IMCControlAPI.Controllers
             return Ok(await _context.IMCOptions.ToListAsync());
         }
 
+        [HttpGet("getimcsuser/{Uuid}")]
+        public async Task<IActionResult> GetImcsUser(string Uuid){
+            Uuid = "";
+            return Ok(await _context.IMCUsers.Where(x => x.Uuid == Uuid).OrderByDescending(x => x.TimesTamp).ToListAsync());
+        }
+
+        [HttpPost("saveimc")]
+        public async Task<IActionResult> SaveImc(IMCDTO imc){
+            try
+            {
+                IMCUser imcUser = _mapper.Map<IMCUser>(imc);
+                await _context.IMCUsers.AddAsync(imcUser);
+                await _context.SaveChangesAsync();
+                return Ok(true);
+            }
+            catch (System.Exception ex)
+            {
+                
+                return BadRequest(false);
+            }
+        }
     }
 }

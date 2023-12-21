@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8Hc+exaWrdiru4QaVZDU/FACXeDAB9M+spRvXfAqN3mLqG+whOhTP7D7bB0+E65U5lzf1QscXwUvz0jX41SkSA==",
+  "dgSpecHash": "t9aSdgJvTCo2FBkf/AYQEKZWDR7RIpUWx23Of5dOf13lPt+bm8w4wRI8wIM0B8V4jwsEDajMkmog4vxudLTKrA==",
   "success": true,
   "projectFilePath": "C:\\ErvinGitRepos\\IMCControlRepo\\IMCControlAPI\\IMCControlAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\esolanov\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\esolanov\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\esolanov\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\esolanov\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.25\\microsoft.data.sqlite.core.6.0.25.nupkg.sha512",
     "C:\\Users\\esolanov\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.25\\microsoft.entityframeworkcore.6.0.25.nupkg.sha512",
     "C:\\Users\\esolanov\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.25\\microsoft.entityframeworkcore.abstractions.6.0.25.nupkg.sha512",

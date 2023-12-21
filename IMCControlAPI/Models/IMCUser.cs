@@ -14,6 +14,6 @@ namespace IMCControlAPI.Models
         public double Imc {set;get;}
         public string ImcDescription {set;get;} = "";
         public string ImcColor {set;get;} = "";
-        public DateTime TimesTamp {set;get;} 
+        public DateTime TimesTamp {set;get;} = DateTime.Now;
     }
 }

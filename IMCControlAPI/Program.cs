@@ -1,4 +1,6 @@
+using AutoMapper;
 using IMCControlAPI.Data;
+using IMCControlAPI.Mapper;
 using IMCControlAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+var mapperConfig = new MapperConfiguration(m => {
+    m.AddProfile(new MappingDTO());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 

@@ -9,9 +9,10 @@ namespace IMCControlAPI.DTO
     {
         public int Id {set;get;}
         public string Uuid {set;get;} = "";
-        public double height {set;get;}
-        public double weight {set;get;}
-        public double imc {set;get;}
-        public string imcDescription {set;get;} = "";
+        public double Height {set;get;}
+        public double Weight {set;get;}
+        public double Imc {set;get;}
+        public string ImcDescription {set;get;} = "";
+        public string ImcColor {set;get;} = "";
     }
 }
