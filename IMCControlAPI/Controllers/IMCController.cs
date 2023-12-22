@@ -54,5 +54,21 @@ namespace IMCControlAPI.Controllers
                 return BadRequest(false);
             }
         }
+
+        [HttpDelete("deleteimc/{id}")]
+        public async Task<IActionResult> DeleteImc(int id){
+            try
+            {
+                var imc = await _context.IMCUsers.FirstOrDefaultAsync(x => x.Id == id);
+                _context.IMCUsers.Remove(imc);
+                await _context.SaveChangesAsync();
+                return Ok(true);
+            }
+            catch (System.Exception ex)
+            {
+                
+                return BadRequest(false);
+            }
+        }
     }
 }
