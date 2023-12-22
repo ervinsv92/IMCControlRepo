@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+builder.WebHost.ConfigureKestrel(options => {
+    options.ListenAnyIP(5208);
+});
+
 // Add services to the container.
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlite(connectionString));
 builder.Services.AddTransient<IIMCService, IMCService>();
