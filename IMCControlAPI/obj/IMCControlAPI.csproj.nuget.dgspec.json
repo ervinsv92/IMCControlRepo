@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ervin\\Documents\\GitRepos\\IMCControlRepo\\IMCControlAPI\\IMCControlAPI.csproj": {}
+    "/Users/ervinmac/Documents/GitRepos/IMCControlRepo/IMCControlAPI/IMCControlAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ervin\\Documents\\GitRepos\\IMCControlRepo\\IMCControlAPI\\IMCControlAPI.csproj": {
+    "/Users/ervinmac/Documents/GitRepos/IMCControlRepo/IMCControlAPI/IMCControlAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ervin\\Documents\\GitRepos\\IMCControlRepo\\IMCControlAPI\\IMCControlAPI.csproj",
+        "projectUniqueName": "/Users/ervinmac/Documents/GitRepos/IMCControlRepo/IMCControlAPI/IMCControlAPI.csproj",
         "projectName": "IMCControlAPI",
-        "projectPath": "C:\\Users\\Ervin\\Documents\\GitRepos\\IMCControlRepo\\IMCControlAPI\\IMCControlAPI.csproj",
-        "packagesPath": "C:\\Users\\Ervin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ervin\\Documents\\GitRepos\\IMCControlRepo\\IMCControlAPI\\obj\\",
+        "projectPath": "/Users/ervinmac/Documents/GitRepos/IMCControlRepo/IMCControlAPI/IMCControlAPI.csproj",
+        "packagesPath": "/Users/ervinmac/.nuget/packages/",
+        "outputPath": "/Users/ervinmac/Documents/GitRepos/IMCControlRepo/IMCControlAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ervin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ervinmac/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -82,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.417/RuntimeIdentifierGraph.json"
         }
       }
     }

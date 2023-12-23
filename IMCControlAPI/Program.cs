@@ -26,6 +26,17 @@ var mapperConfig = new MapperConfiguration(m => {
 IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("*");
+            policy.WithMethods("*");
+            policy.WithHeaders("*");
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
