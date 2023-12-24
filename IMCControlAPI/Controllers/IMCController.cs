@@ -35,7 +35,6 @@ namespace IMCControlAPI.Controllers
 
         [HttpGet("getimcsuser/{Uuid}")]
         public async Task<IActionResult> GetImcsUser(string Uuid){
-            Uuid = "";
             return Ok(await _context.IMCUsers.Where(x => x.Uuid == Uuid).OrderByDescending(x => x.TimesTamp).ToListAsync());
         }
 

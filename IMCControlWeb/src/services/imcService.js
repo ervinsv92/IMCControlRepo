@@ -5,6 +5,26 @@ class ImcService{
         const imcResult = await res.json();
         return imcResult;
     }
+
+    async saveImc(imc){
+        console.log("servicio", imc)
+        const res = await fetch(`${PUBLIC_URL_API}imc/saveimc`,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(imc)
+        })
+
+        const imcResult = await res.json();
+        return imcResult;
+    }
+
+    async getimcsuser(uuid){
+        const res = await fetch(`${PUBLIC_URL_API}imc/getimcsuser/${uuid}`);
+        const historyResult = await res.json();
+        return historyResult;
+    }
 }
 
 const imcService = new ImcService();

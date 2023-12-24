@@ -1,5 +1,6 @@
 <script>
     import {imcService} from '../services/imcService';
+    import {userStore} from '../store/store';
 	export let data;
     const {imcOptions} = data;
     const imcForm = {
@@ -8,26 +9,51 @@
     }
     let imcResult = null;
     
-    function calculateImc(){
+    async function calculateImc(){
         if(isNaN(imcForm.weight) || isNaN(imcForm.height) || imcForm.weight == 0 || imcForm.height == 0){
             alert("El peso y la altura debe de ser un numero mayor a 0");
             return;
         }
-        const imcRes = imcService.calculateImc(imcForm.weight, imcForm.height);
+        const imcRes = await imcService.calculateImc(imcForm.weight, imcForm.height);
         imcResult=imcRes;
     }
 
     function resultClean(){
         imcResult = null;
     }
+
+    async function saveImc(){
+        console.log(imcResult, imcForm)
+        try {
+            const res = await imcService.saveImc({
+                Uuid:$userStore.uid,
+                Height:imcForm.height,
+                Weight:imcForm.weight,
+                Imc:imcResult.imc,
+                ImcDescription: imcResult.imcDescription,
+                ImcColor:imcResult.color
+            });
+            resultClean();
+            alert("Imc guardado!");
+        } catch (error) {
+            console.error(error);
+        }
+    }
 </script>
+
+<style>
+    .note-alert{
+        color:blue;
+    }
+</style>
+
 <div class="row mt-2">
     <div class="col-6">
         <h1>IMC</h1>
         <p>El Índice de Masa Corporal (IMC) es una medida que evalúa la relación entre el peso y la estatura de una persona. Se calcula dividiendo el peso en kilogramos por el cuadrado de la estatura en metros (IMC = peso / estatura^2). El IMC se usa comúnmente como indicador general de la cantidad de grasa corporal y ayuda a clasificar a las personas en categorías como bajo peso, peso normal, sobrepeso u obesidad, aunque no considera otros factores como la composición corporal o la distribución de la grasa.</p>
         <hr>
         <h2>Tabla del IMC</h2>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Detalle</th>
@@ -72,14 +98,22 @@
                 <button type="button" class="btn btn-success form-control" on:click={calculateImc}>Calcular</button>
             </div>
         </div>
+        <i class="note-alert">Inicia sesion para guardar tus resultados</i>
         {#if imcResult}
             <div class="row mt-2">
                 <div class="col-lg-12">
                     <div class="alert" role="alert" style="background-color:{imcResult.color};">
-                        {`El resultado de tu IMC es: ${imcResult.imc} por lo tanto tu condicion es: ${imcResult.imcDescription}`}
+                        {`El resultado de tu IMC es: ${imcResult.imc} por lo tanto tu condición es: ${imcResult.imcDescription}`}
                     </div>              
                 </div>
             </div>
+            {#if $userStore}
+                <div class="row mt-1">
+                    <div class="col-lg-12">
+                        <button type="button" class="btn btn-primary form-control" on:click={saveImc}>Guardar</button>
+                    </div>
+                </div>            
+            {/if}
         {/if}
         
     </div>
