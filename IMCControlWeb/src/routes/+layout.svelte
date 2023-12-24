@@ -6,7 +6,6 @@
 
     onAuthStateChanged(fireAuth, (authUser)=>{
         $userStore = authUser;
-        console.log($userStore)
     });
 </script>
 <Navbar />

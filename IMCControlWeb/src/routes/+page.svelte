@@ -1,6 +1,7 @@
 <script>
     import {imcService} from '../services/imcService';
     import {userStore} from '../store/store';
+    import {showAlert} from '../utils/sweetAlert/sweetAlert';
 	export let data;
     const {imcOptions} = data;
     const imcForm = {
@@ -11,7 +12,7 @@
     
     async function calculateImc(){
         if(isNaN(imcForm.weight) || isNaN(imcForm.height) || imcForm.weight == 0 || imcForm.height == 0){
-            alert("El peso y la altura debe de ser un numero mayor a 0");
+            showAlert({text:"El peso y la altura debe de ser un número mayor a 0"});
             return;
         }
         const imcRes = await imcService.calculateImc(imcForm.weight, imcForm.height);
@@ -23,7 +24,6 @@
     }
 
     async function saveImc(){
-        console.log(imcResult, imcForm)
         try {
             const res = await imcService.saveImc({
                 Uuid:$userStore.uid,
@@ -34,7 +34,7 @@
                 ImcColor:imcResult.color
             });
             resultClean();
-            alert("Imc guardado!");
+            showAlert({text:"Imc guardado!"})
         } catch (error) {
             console.error(error);
         }
@@ -48,7 +48,7 @@
 </style>
 
 <div class="row mt-2">
-    <div class="col-6">
+    <div class="col-lg-6 col-sm-12 col-xs-12">
         <h1>IMC</h1>
         <p>El Índice de Masa Corporal (IMC) es una medida que evalúa la relación entre el peso y la estatura de una persona. Se calcula dividiendo el peso en kilogramos por el cuadrado de la estatura en metros (IMC = peso / estatura^2). El IMC se usa comúnmente como indicador general de la cantidad de grasa corporal y ayuda a clasificar a las personas en categorías como bajo peso, peso normal, sobrepeso u obesidad, aunque no considera otros factores como la composición corporal o la distribución de la grasa.</p>
         <hr>
@@ -79,7 +79,7 @@
             
         </table>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6 col-sm-12 col-xs-12">
         <h2>Calculadora IMC</h2>
         <div class="row mt-2">
             <div class="col-lg-12">
@@ -98,7 +98,7 @@
                 <button type="button" class="btn btn-success form-control" on:click={calculateImc}>Calcular</button>
             </div>
         </div>
-        <i class="note-alert">Inicia sesion para guardar tus resultados</i>
+        <i class="note-alert">Inicia sesión para guardar tus resultados</i>
         {#if imcResult}
             <div class="row mt-2">
                 <div class="col-lg-12">

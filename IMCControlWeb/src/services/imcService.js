@@ -20,10 +20,19 @@ class ImcService{
         return imcResult;
     }
 
-    async getimcsuser(uuid){
+    async getImcsUser(uuid){
         const res = await fetch(`${PUBLIC_URL_API}imc/getimcsuser/${uuid}`);
         const historyResult = await res.json();
         return historyResult;
+    }
+
+    async deleteImc(id){
+        const res = await fetch(`${PUBLIC_URL_API}imc/deleteimc/${id}`,{
+            method:'DELETE'
+        })
+
+        const imcResult = await res.json();
+        return imcResult;
     }
 }
 
