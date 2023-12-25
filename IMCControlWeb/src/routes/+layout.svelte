@@ -5,7 +5,11 @@
     import {userStore} from '../store/store';
 
     onAuthStateChanged(fireAuth, (authUser)=>{
-        $userStore = authUser;
+        if(authUser && authUser.emailVerified){
+            $userStore = authUser;
+        }else{
+            $userStore = null;
+        }
     });
 </script>
 <Navbar />

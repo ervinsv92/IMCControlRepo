@@ -3,10 +3,11 @@
     import dayjs from 'dayjs';
     import {imcService} from '../../../services/imcService';
     import {userStore} from '../../../store/store';
+    import {showAlert} from '../../../utils/sweetAlert/sweetAlert';
     let historys = data.historys;
     
     async function deleteImc(id){
-        if(!confirm("Desea eliminar el IMC?")){
+        if(!await showAlert({text:"Desea eliminar el IMC?", isConfirm:true})){
             return;
         }
 
